@@ -4,6 +4,7 @@ public class SingletonScript : MonoBehaviour
 {
     public static SingletonScript instance;
     private int highScore;
+    private int score;
 
     void Awake()
     {
