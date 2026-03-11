@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 639104279}
   - component: {fileID: 639104281}
   m_Layer: 3
-  m_Name: paltform
+  m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

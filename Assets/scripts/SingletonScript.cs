@@ -3,8 +3,10 @@ using UnityEngine;
 public class SingletonScript : MonoBehaviour
 {
     public static SingletonScript instance;
+    //plr stuff
     private int highScore;
     private int score;
+    private int playerHealth;
 
     void Awake()
     {
