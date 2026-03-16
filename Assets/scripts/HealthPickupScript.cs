@@ -1,0 +1,25 @@
+using UnityEngine;
+
+public class HealthPickupScript : MonoBehaviour
+{
+    
+    void Start()
+    {
+        
+    }
+
+    
+    void Update()
+    {
+        
+    }
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            
+            SingletonScript.instance.playerHealth += 20;
+            Destroy(gameObject);
+        }
+    }
+}

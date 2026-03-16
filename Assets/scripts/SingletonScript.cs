@@ -1,12 +1,18 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 public class SingletonScript : MonoBehaviour
 {
     public static SingletonScript instance;
     //plr stuff
-    private int highScore;
-    private int score;
-    private int playerHealth;
+    public int highScore = 0;
+    public int score = 0;
+    public int playerHealth = 100;
+    public int playerAmmo = 0;
+    //public int[] playerKeys;
+    public List<int> playerKeys = new List<int>();
+    
 
     void Awake()
     {

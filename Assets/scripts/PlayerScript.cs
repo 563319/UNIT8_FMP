@@ -29,12 +29,16 @@ public class Player : MonoBehaviour
     {
 
         Player_Actions();
-
+        HealthMax();
+        AmmoMax();
+        print("health: " + SingletonScript.instance.playerHealth);
+        print("ammo: " + SingletonScript.instance.playerAmmo);
+        foreach (int i in SingletonScript.instance.playerKeys)
+        {
+            print("player key; " + i);
+        }
+        
     }
-
-
-
-
 
 
 
@@ -61,7 +65,7 @@ public class Player : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && SingletonScript.instance.playerAmmo > 0)
         {
             shoot();
         }
@@ -76,7 +80,6 @@ public class Player : MonoBehaviour
 
         rb.linearVelocity = Camera.main.transform.forward * bulletSpeed;
         */
-
         RaycastHit hitInfo;
         bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
         if (hit)
@@ -91,5 +94,19 @@ public class Player : MonoBehaviour
 
 
     }
-    
+    void HealthMax()
+    {
+        if (SingletonScript.instance.playerHealth > 200)
+        {
+            SingletonScript.instance.playerHealth = 200;
+        }
+    }
+    void AmmoMax()
+    {
+        if (SingletonScript.instance.playerAmmo > 12)
+        {
+            SingletonScript.instance.playerAmmo = 12;
+        }
+    }
+
 }
