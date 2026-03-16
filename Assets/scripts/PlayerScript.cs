@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         print("ammo: " + SingletonScript.instance.playerAmmo);
         foreach (int i in SingletonScript.instance.playerKeys)
         {
-            print("player key; " + i);
+            print("player key: " + i);
         }
         
     }
