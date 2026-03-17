@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
             print("player key: " + i);
         }
         
+        
     }
 
 
@@ -106,6 +107,17 @@ public class Player : MonoBehaviour
         if (SingletonScript.instance.playerAmmo > 12)
         {
             SingletonScript.instance.playerAmmo = 12;
+        }
+    }
+    void OnControllerColliderHit(ControllerColliderHit col)
+    {
+        if (col.gameObject.tag == "Door")
+        {
+            if (SingletonScript.instance.playerKeys.Contains(col.gameObject.GetComponent<DoorScript>().ID))
+            {
+                SingletonScript.instance.playerKeys.Remove(col.gameObject.GetComponent<DoorScript>().ID);
+                Destroy(col.gameObject);
+            }
         }
     }
 

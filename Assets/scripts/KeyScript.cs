@@ -19,6 +19,7 @@ public class KeyScript : MonoBehaviour
         {
 
             SingletonScript.instance.playerKeys.Add(ID);
+            //SingletonScript.instance.playerKeys = new int[ID];
             Destroy(gameObject);
         }
     }
