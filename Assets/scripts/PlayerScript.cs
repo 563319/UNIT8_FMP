@@ -1,11 +1,9 @@
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
-    public GameObject bullet;
     public Transform bulletSpawnPos;
-    public float bulletSpeed = 50;
 
     public CharacterController controller;
     public float speed = 15f;
@@ -73,14 +71,7 @@ public class Player : MonoBehaviour
     }
     void shoot()
     {
-        /*
-        GameObject clone;
-        clone = Instantiate(bullet, bulletSpawnPos.position, Camera.main.transform.rotation);
-        Rigidbody rb = clone.GetComponent<Rigidbody>();
-        
-
-        rb.linearVelocity = Camera.main.transform.forward * bulletSpeed;
-        */
+       
         RaycastHit hitInfo;
         bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
         if (hit)

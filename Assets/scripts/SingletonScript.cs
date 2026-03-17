@@ -5,7 +5,7 @@ using UnityEngine;
 public class SingletonScript : MonoBehaviour
 {
     public static SingletonScript instance;
-    //plr stuff
+    ///plr stuff
     public int highScore = 0;
     public int score = 0;
     public int playerHealth = 100;

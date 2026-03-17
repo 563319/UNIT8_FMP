@@ -21,7 +21,7 @@ public class BillBoardScript : MonoBehaviour
     {
 
         transform.LookAt(cameraTransform, Vector3.up);
-        transform.Rotate(0f, 180f, 0f);
+        //transform.Rotate(0f, 180f, 0f);
 
     }
 }
