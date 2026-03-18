@@ -29,12 +29,17 @@ public class PlayerScript : MonoBehaviour
         Player_Actions();
         HealthMax();
         AmmoMax();
+        highScoreManager();
+
+        print("plr health: " + SingletonScript.instance.playerHealth);
+        /*
         print("health: " + SingletonScript.instance.playerHealth);
         print("ammo: " + SingletonScript.instance.playerAmmo);
         foreach (int i in SingletonScript.instance.playerKeys)
         {
             print("player key: " + i);
         }
+        */
         
         
     }
@@ -43,30 +48,37 @@ public class PlayerScript : MonoBehaviour
 
     void Player_Actions()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (SingletonScript.instance.playerHealth > 0)
+        { 
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+            Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
+            controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
 
-        if (Input.GetMouseButtonDown(0) && SingletonScript.instance.playerAmmo > 0)
-        {
-            shoot();
+            if (Input.GetMouseButtonDown(0) && SingletonScript.instance.playerAmmo > 0)
+            {
+                shoot();
+            }
+            if (SingletonScript.instance.playerHealth <= 0)
+            {
+                death();
+            }
         }
     }
     void shoot()
@@ -76,11 +88,21 @@ public class PlayerScript : MonoBehaviour
         bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
         if (hit)
         {
+            SingletonScript.instance.playerAmmo -= 1;
             print("just shot");
             Debug.DrawRay(bulletSpawnPos.position, bulletSpawnPos.forward, Color.red);
             Debug.Log(hitInfo.collider.gameObject.name);
+
+            //enemy damage
+            if (hitInfo.collider.gameObject.tag == "Enemy")
+            {
+                
+                hitInfo.collider.gameObject.GetComponent<GnomeScript>().enemyHealth -= 20;
+                SingletonScript.instance.score += 1;
+            }
             
         }
+        
 
 
 
@@ -110,6 +132,18 @@ public class PlayerScript : MonoBehaviour
                 Destroy(col.gameObject);
             }
         }
+    }
+    void highScoreManager()
+    {
+       
+        if (SingletonScript.instance.highScore < SingletonScript.instance.score)
+        {
+            SingletonScript.instance.highScore = SingletonScript.instance.score;
+        }
+    }
+    void death()
+    {
+        //dead stuff
     }
 
 }

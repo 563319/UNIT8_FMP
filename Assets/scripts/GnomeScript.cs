@@ -1,3 +1,4 @@
+using System.Resources;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,24 +11,17 @@ public class GnomeScript : MonoBehaviour
     //2=shoot
     int state;
 
-
+   
     public GameObject bullet;
     public Transform bulletSpawnPos;
     public float bulletSpeed = 20;
 
-    int enemyHealth = 200;
-    int enemyDamage = 10;
-    float agroRadius = 20f;
-    float shootingRadius = 10f;
-
-    
+    public int enemyHealth = 200;
+    float agroRadius = 30f;
+    float shootingRadius = 20f;
 
     float shotTimer = 0f;
 
-
-    bool isidle = true;
-    bool isChasing = false;
-    bool isShooting = false;
 
     float distanceToPlayer;
 
@@ -50,9 +44,12 @@ public class GnomeScript : MonoBehaviour
     
     void Update()
     {
+        distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        if (enemyHealth <= 0)
+        {
+            death();
 
-
-        //Logic();
+        }
 
         if (state==0)
         {
@@ -70,60 +67,87 @@ public class GnomeScript : MonoBehaviour
         }
 
 
-        
+        //print("enemy state is: " + state);
+        //print("distance: " + distanceToPlayer);
+        print("enemy health: " + enemyHealth);
     }
-    void Logic()
-    {
-        distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+    
 
+    void Idle() 
+    {
+        //do idle
+        //set it to its own position so its stops moving
+        agent.destination = transform.position;
+        //if player is in agro radius start chasing
         if (distanceToPlayer < agroRadius && distanceToPlayer > shootingRadius)
         {
-            isChasing = true;
-        }
-        else
-        {
-            isChasing = false;
+            state = 1;
         }
         if (distanceToPlayer < shootingRadius)
         {
-            isShooting = true;
+            state = 2;
         }
-
-    }
-
-    void Idle()
-    {
-        //check for player in range
-
-        //if player in range, change to chase state
 
     }
     void Chasing()
     {
-        //check for player outside range
-        //if outside, change to idle state
-
+        //do chasing
         agent.destination = playerTransform.position;
+
+        //if player goes out of agro radius go idle
+        if (distanceToPlayer > agroRadius)
+        {
+            state = 0;
+        }
+        //if player goes into shooting radius start shooting
+        if (distanceToPlayer < shootingRadius)
+        {
+            state = 2;
+        }
         
+
     }
     void Shooting()
     {
-        
+        Rigidbody rb;
+
+        //do shooting
         shotTimer += Time.deltaTime;
-        
         if (shotTimer >= 1)
         {
             GameObject clone;
             clone = Instantiate(bullet, bulletSpawnPos.position, gameObject.transform.rotation);
-            Rigidbody rb = clone.GetComponent<Rigidbody>();
+            rb = clone.GetComponent<Rigidbody>();
+
+            rb.transform.LookAt(Camera.main.transform, Vector3.up);
 
 
-            rb.linearVelocity = gameObject.transform.forward * bulletSpeed;
+
+            rb.linearVelocity = clone.transform.forward * bulletSpeed;
             shotTimer = 0;
+        }
+        // if player is outside shooting radius but inside agro radius
+        if (distanceToPlayer > shootingRadius && distanceToPlayer < agroRadius)
+        {
+            
+            state = 1;
+        }
+        //id player is outside agro and shoot radius
+        if (distanceToPlayer > agroRadius)
+        {
+            state = 0; 
         }
 
 
 
     }
+    void death()
+    {
+        
+        //die stuff
+        Destroy(gameObject);
+    }
+
+
 
 }

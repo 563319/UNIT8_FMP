@@ -28,6 +28,7 @@ public class EnemyBulletScript : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Destroy(gameObject);
+            SingletonScript.instance.playerHealth -= 20;
         }
     }
 }
