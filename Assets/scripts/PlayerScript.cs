@@ -31,16 +31,14 @@ public class PlayerScript : MonoBehaviour
         AmmoMax();
         highScoreManager();
 
-        print("plr health: " + SingletonScript.instance.playerHealth);
-        /*
-        print("health: " + SingletonScript.instance.playerHealth);
+        
+        print(" plr health: " + SingletonScript.instance.playerHealth);
         print("ammo: " + SingletonScript.instance.playerAmmo);
         foreach (int i in SingletonScript.instance.playerKeys)
         {
             print("player key: " + i);
+
         }
-        */
-        
         
     }
 
