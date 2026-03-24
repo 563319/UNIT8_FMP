@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using UnityEngine;
+using static UnityEditor.VersionControl.Asset;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -134,6 +135,18 @@ public class PlayerScript : MonoBehaviour
     void death()
     {
         //dead stuff
+    }
+    private void OnGUI()
+    {
+        string text = "plr health: " + SingletonScript.instance.playerHealth;
+        text += "\nplr ammo: " + SingletonScript.instance.playerAmmo;
+        text += "\nscore: " + SingletonScript.instance.score;
+        text += "\nHigh score: " + SingletonScript.instance.highScore;
+
+        GUILayout.BeginArea(new Rect(10f, 450f, 1600f, 1600f));
+        GUILayout.Label($"<size=18>{text}</size>");
+        GUILayout.EndArea();
+        
     }
 
 }
