@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: -3688981323483621331}
   - component: {fileID: 2916941189243519299}
   - component: {fileID: 1184515722154263370}
+  - component: {fileID: -3224019944943332886}
   m_Layer: 0
   m_Name: AmmoPickup
   m_TagString: Untagged
@@ -326,3 +327,17 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &-3224019944943332886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8603300413368151797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a73e6b577749cc48b38f4d3bf03024b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloatingScript
+  speed: 2
+  height: 0.3

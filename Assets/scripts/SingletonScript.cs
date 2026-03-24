@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SingletonScript : MonoBehaviour
@@ -12,7 +13,12 @@ public class SingletonScript : MonoBehaviour
     public int playerAmmo = 0;
     //public int[] playerKeys;
     public List<int> playerKeys = new List<int>();
+
+    //gunsprite anim
+    public Animator gunAnim;
+
     
+
 
     void Awake()
     {
@@ -31,7 +37,22 @@ public class SingletonScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void StartShootingAnim()
+    {
+
+        gunAnim.SetBool("isIdle", false);
+        gunAnim.SetBool("isShooting", true);
+        
+
+    }
+    public void EndShootingAnim()
+    {
+
+        gunAnim.SetBool("isIdle", true);
+        gunAnim.SetBool("isShooting", false);
+
+    }
+   
 
 
-    
 }

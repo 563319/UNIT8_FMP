@@ -201,8 +201,6 @@ GameObject:
   - component: {fileID: 305049983}
   - component: {fileID: 305049985}
   - component: {fileID: 305049984}
-  - component: {fileID: 305049986}
-  - component: {fileID: 305049987}
   m_Layer: 5
   m_Name: PlayerGun
   m_TagString: Untagged
@@ -264,40 +262,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305049982}
   m_CullTransparentMesh: 1
---- !u!95 &305049986
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305049982}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 095384b579b031346b024e55985e5fc6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &305049987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305049982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f95f3924baa67cf45b732b02ed4fd51d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &328894766
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +296,6 @@ MonoBehaviour:
   playerHealth: 200
   playerAmmo: 12
   playerKeys: 
-  gunAnim: {fileID: 305049986}
 --- !u!4 &328894768
 Transform:
   m_ObjectHideFlags: 0
@@ -1078,7 +1041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &572507218
 Transform:
   m_ObjectHideFlags: 0
@@ -2512,7 +2475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6078152542192661119, guid: f5bd19d982466d2449d3d579d4135273, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2783199
+      value: -0.78831995
       objectReference: {fileID: 0}
     - target: {fileID: 6078152542192661119, guid: f5bd19d982466d2449d3d579d4135273, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2790,7 +2753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6078152542192661119, guid: f5bd19d982466d2449d3d579d4135273, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.44999987
+      value: -0.9599999
       objectReference: {fileID: 0}
     - target: {fileID: 6078152542192661119, guid: f5bd19d982466d2449d3d579d4135273, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2847,7 +2810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7825863596584131855, guid: f0f3296ef5edd5947b6a8a017bfa2a5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.10100004
+      value: -0.409
       objectReference: {fileID: 0}
     - target: {fileID: 7825863596584131855, guid: f0f3296ef5edd5947b6a8a017bfa2a5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2982,7 +2945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8535582720796734732, guid: 05811d29cbfe7834695b9f8bba204e87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.45
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 8535582720796734732, guid: 05811d29cbfe7834695b9f8bba204e87, type: 3}
       propertyPath: m_LocalPosition.z

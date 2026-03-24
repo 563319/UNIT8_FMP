@@ -16,7 +16,7 @@ public class GnomeScript : MonoBehaviour
     public Transform bulletSpawnPos;
     public float bulletSpeed = 20;
 
-    public int enemyHealth = 200;
+    public int enemyHealth = 60;
     float agroRadius = 30f;
     float shootingRadius = 20f;
 

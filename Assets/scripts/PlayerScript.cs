@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
-    
+
 
 
     void Start()
@@ -22,24 +22,13 @@ public class PlayerScript : MonoBehaviour
         
     }
 
-    
     void Update()
     {
-
         Player_Actions();
         HealthMax();
         AmmoMax();
         highScoreManager();
 
-        
-        print(" plr health: " + SingletonScript.instance.playerHealth);
-        print("ammo: " + SingletonScript.instance.playerAmmo);
-        foreach (int i in SingletonScript.instance.playerKeys)
-        {
-            print("player key: " + i);
-
-        }
-        
     }
 
 
@@ -73,6 +62,7 @@ public class PlayerScript : MonoBehaviour
             {
                 shoot();
             }
+            
             if (SingletonScript.instance.playerHealth <= 0)
             {
                 death();
@@ -81,7 +71,8 @@ public class PlayerScript : MonoBehaviour
     }
     void shoot()
     {
-       
+        SingletonScript.instance.StartShootingAnim();
+        
         RaycastHit hitInfo;
         bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
         if (hit)
@@ -106,6 +97,7 @@ public class PlayerScript : MonoBehaviour
 
 
     }
+    
     void HealthMax()
     {
         if (SingletonScript.instance.playerHealth > 200)

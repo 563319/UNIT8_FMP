@@ -143,7 +143,7 @@ MonoBehaviour:
   bullet: {fileID: 8340994556531539925, guid: 7c05eb41322c7ca478fe64d6d25427d6, type: 3}
   bulletSpawnPos: {fileID: 698384783810352299}
   bulletSpeed: 20
-  enemyHealth: 200
+  enemyHealth: 60
 --- !u!136 &120214222991883256
 CapsuleCollider:
   m_ObjectHideFlags: 0
