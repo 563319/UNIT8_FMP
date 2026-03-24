@@ -4,6 +4,8 @@ using static UnityEditor.VersionControl.Asset;
 
 public class PlayerScript : MonoBehaviour
 {
+    public LineRenderer lineRend;
+
     public Transform bulletSpawnPos;
 
     public CharacterController controller;
@@ -78,8 +80,17 @@ public class PlayerScript : MonoBehaviour
         bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
         if (hit)
         {
+            ///
+            lineRend.enabled = true;
+            lineRend.SetPosition(0, bulletSpawnPos.position);
+            lineRend.SetPosition(1, hitInfo.point);
+            ///
+
+
+
+
             SingletonScript.instance.playerAmmo -= 1;
-            print("just shot");
+            
             Debug.DrawRay(bulletSpawnPos.position, bulletSpawnPos.forward, Color.red);
             Debug.Log(hitInfo.collider.gameObject.name);
 
@@ -89,8 +100,15 @@ public class PlayerScript : MonoBehaviour
                 
                 hitInfo.collider.gameObject.GetComponent<GnomeScript>().enemyHealth -= 20;
                 SingletonScript.instance.score += 1;
+                print("hit enemy");
             }
             
+        }
+        else
+        {
+            ///
+            lineRend.enabled=false;
+            ///
         }
         
 

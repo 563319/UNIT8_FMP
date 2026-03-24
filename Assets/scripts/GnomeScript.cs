@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class GnomeScript : MonoBehaviour
 {
+    bool isDead = false;
+
 
     //0=idle
     //1=chase
@@ -47,7 +49,7 @@ public class GnomeScript : MonoBehaviour
         distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         if (enemyHealth <= 0)
         {
-            death();
+            EnemyDeath();
 
         }
 
@@ -76,8 +78,12 @@ public class GnomeScript : MonoBehaviour
     void Idle() 
     {
         //do idle
-        //set it to its own position so its stops moving
-        agent.destination = transform.position;
+        if (isDead == false)
+        {
+            //set it to its own position so its stops moving
+            agent.destination = transform.position;
+        }
+            
         //if player is in agro radius start chasing
         if (distanceToPlayer < agroRadius && distanceToPlayer > shootingRadius)
         {
@@ -92,7 +98,13 @@ public class GnomeScript : MonoBehaviour
     void Chasing()
     {
         //do chasing
-        agent.destination = playerTransform.position;
+        if (isDead == false)
+        {
+            agent.destination = playerTransform.position;
+        }
+        
+        
+        
 
         //if player goes out of agro radius go idle
         if (distanceToPlayer > agroRadius)
@@ -141,11 +153,12 @@ public class GnomeScript : MonoBehaviour
 
 
     }
-    void death()
-    {
+    void EnemyDeath()
+    { 
         
         //die stuff
         Destroy(gameObject);
+        isDead = true;
     }
     
 
