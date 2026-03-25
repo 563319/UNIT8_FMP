@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.VersionControl.Asset;
 
@@ -7,6 +8,8 @@ public class PlayerScript : MonoBehaviour
     public LineRenderer lineRend;
 
     public Transform bulletSpawnPos;
+
+    public GameObject pauseMenu;
 
     public CharacterController controller;
     public float speed = 15f;
@@ -17,8 +20,11 @@ public class PlayerScript : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
+    bool hasPressedEsc = false;
 
 
+    //gunsprite anim
+    public Animator gunAnim;
 
     void Start()
     {
@@ -65,6 +71,26 @@ public class PlayerScript : MonoBehaviour
             {
                 shoot();
             }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                print("pressed esc");
+                if (hasPressedEsc == false)
+                {
+                    print("trying to pause");
+                    pauseMenu.GetComponent<PauseMenuScript>().Pause();
+                    hasPressedEsc = true;
+                    return;
+                }
+                if (hasPressedEsc == true)
+                {
+                    print("trying to unpause");
+                    pauseMenu.GetComponent<PauseMenuScript>().Resume();
+                    hasPressedEsc = false;
+                    return;
+                }
+
+            }
             
             if (SingletonScript.instance.playerHealth <= 0)
             {
@@ -74,7 +100,7 @@ public class PlayerScript : MonoBehaviour
     }
     void shoot()
     {
-        SingletonScript.instance.StartShootingAnim();
+        StartShootingAnim();
         
         RaycastHit hitInfo;
         bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
@@ -153,6 +179,13 @@ public class PlayerScript : MonoBehaviour
     void death()
     {
         //dead stuff
+    }
+
+    public void StartShootingAnim()
+    {
+        gunAnim.SetBool("isIdle", false);
+        gunAnim.SetBool("isShooting", true);
+
     }
     private void OnGUI()
     {

@@ -14,8 +14,6 @@ public class SingletonScript : MonoBehaviour
     //public int[] playerKeys;
     public List<int> playerKeys = new List<int>();
 
-    //gunsprite anim
-    public Animator gunAnim;
 
     
 
@@ -37,21 +35,9 @@ public class SingletonScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void StartShootingAnim()
-    {
 
-        gunAnim.SetBool("isIdle", false);
-        gunAnim.SetBool("isShooting", true);
-        
-
-    }
-    public void EndShootingAnim()
-    {
-
-        gunAnim.SetBool("isIdle", true);
-        gunAnim.SetBool("isShooting", false);
-
-    }
+    
+   
    
 
 
