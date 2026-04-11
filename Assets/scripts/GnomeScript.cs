@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class GnomeScript : MonoBehaviour
 {
+    public Animator anim;
     bool isDead = false;
 
 
@@ -77,6 +78,9 @@ public class GnomeScript : MonoBehaviour
 
     void Idle() 
     {
+        anim.SetBool("isMoving", false);
+        anim.SetBool("isShooting", false);
+
         //do idle
         if (isDead == false)
         {
@@ -97,6 +101,8 @@ public class GnomeScript : MonoBehaviour
     }
     void Chasing()
     {
+        anim.SetBool("isMoving", true);
+        anim.SetBool("isShooting", false);
         //do chasing
         if (isDead == false)
         {
@@ -121,7 +127,19 @@ public class GnomeScript : MonoBehaviour
     }
     void Shooting()
     {
-        Rigidbody rb;
+        
+        anim.SetBool("isShooting", true);
+        if (agent.velocity.magnitude > 0.1f)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+
+
+            Rigidbody rb;
 
         //do shooting
         shotTimer += Time.deltaTime;
@@ -145,8 +163,9 @@ public class GnomeScript : MonoBehaviour
             state = 1;
         }
         //id player is outside agro and shoot radius
-        if (distanceToPlayer > agroRadius)
+        else if (distanceToPlayer > agroRadius)
         {
+            
             state = 0; 
         }
 
