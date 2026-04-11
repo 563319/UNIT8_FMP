@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -93,10 +94,11 @@ public class PlayerScript : MonoBehaviour
 
             }
             
-            if (SingletonScript.instance.playerHealth <= 0)
-            {
-                death();
-            }
+            
+        }
+        else 
+        {
+            death();
         }
     }
     void shoot()
@@ -179,7 +181,16 @@ public class PlayerScript : MonoBehaviour
     }
     void death()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        //reset the singelton stuff because if i dont they will persist between level loads important!
+        SingletonScript.instance.highScore = 0;
+        SingletonScript.instance.score = 0;
+        SingletonScript.instance.playerHealth = 200;
+        SingletonScript.instance.playerAmmo = 0;
+        SingletonScript.instance.playerKeys = new List<int>();
+
         SceneManager.LoadScene(0);
     }
 
