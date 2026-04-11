@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEditor.VersionControl.Asset;
 
 public class PlayerScript : MonoBehaviour
@@ -178,7 +179,8 @@ public class PlayerScript : MonoBehaviour
     }
     void death()
     {
-        //dead stuff
+        
+        SceneManager.LoadScene(0);
     }
 
     public void StartShootingAnim()
