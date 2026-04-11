@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static UnityEditor.VersionControl.Asset;
 
 public class PlayerScript : MonoBehaviour
@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     public Transform bulletSpawnPos;
 
     public GameObject pauseMenu;
+    public GameObject MuzzleFlash;
 
     public CharacterController controller;
     public float speed = 15f;
@@ -30,7 +31,7 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
-        
+        MuzzleFlash.SetActive(false);
     }
 
     void Update()
@@ -104,7 +105,7 @@ public class PlayerScript : MonoBehaviour
     void shoot()
     {
         StartShootingAnim();
-        
+        MuzzleFlash.SetActive(true);
         RaycastHit hitInfo;
         bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
         if (hit)
@@ -137,6 +138,7 @@ public class PlayerScript : MonoBehaviour
         {
             ///
             lineRend.enabled=false;
+            
             ///
         }
         
@@ -184,8 +186,7 @@ public class PlayerScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        //reset the singelton stuff because if i dont they will persist between level loads important!
-        SingletonScript.instance.highScore = 0;
+        //reset the singelton stuff because if i dont they will persist between level loads important!, except highscore obviously
         SingletonScript.instance.score = 0;
         SingletonScript.instance.playerHealth = 200;
         SingletonScript.instance.playerAmmo = 0;

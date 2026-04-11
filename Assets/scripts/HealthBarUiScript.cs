@@ -12,6 +12,9 @@ public class HealthBarUiScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetInteger("healthValue", SingletonScript.instance.playerHealth);
+        if (SingletonScript.instance != null)
+        {
+            anim.SetInteger("healthValue", SingletonScript.instance.playerHealth);
+        }
     }
 }

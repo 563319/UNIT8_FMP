@@ -18,7 +18,7 @@ public class HealthPickupScript : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             
-            SingletonScript.instance.playerHealth += 20;
+            SingletonScript.instance.playerHealth += 80;
             Destroy(gameObject);
         }
     }
