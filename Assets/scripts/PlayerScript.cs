@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     public Transform bulletSpawnPos;
 
     public GameObject pauseMenu;
-    public GameObject MuzzleFlash;
+    //public GameObject MuzzleFlash;
 
     public CharacterController controller;
     public float speed = 15f;
@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
-        MuzzleFlash.SetActive(false);
+       
     }
 
     void Update()
@@ -104,8 +104,9 @@ public class PlayerScript : MonoBehaviour
     }
     void shoot()
     {
+        SingletonScript.instance.playerAmmo -= 1;
         StartShootingAnim();
-        MuzzleFlash.SetActive(true);
+        //MuzzleFlash.SetActive(true);
         RaycastHit hitInfo;
         bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
         if (hit)
@@ -119,7 +120,7 @@ public class PlayerScript : MonoBehaviour
 
 
 
-            SingletonScript.instance.playerAmmo -= 1;
+            
             
             Debug.DrawRay(bulletSpawnPos.position, bulletSpawnPos.forward, Color.red);
             Debug.Log(hitInfo.collider.gameObject.name);
@@ -199,6 +200,7 @@ public class PlayerScript : MonoBehaviour
     {
         gunAnim.SetBool("isIdle", false);
         gunAnim.SetBool("isShooting", true);
+        print("START shoot animation!");
 
     }
     private void OnGUI()
