@@ -1,9 +1,6 @@
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using static UnityEditor.VersionControl.Asset;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -130,6 +127,7 @@ public class PlayerScript : MonoBehaviour
             {
                 
                 hitInfo.collider.gameObject.GetComponent<GnomeScript>().enemyHealth -= 20;
+                hitInfo.collider.gameObject.GetComponent<GnomeScript>().DamageFlash();
                 SingletonScript.instance.score += 1;
                 print("hit enemy");
             }

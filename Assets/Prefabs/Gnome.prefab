@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GnomeScript
   anim: {fileID: 8451455045569093979}
+  SprRenderer: {fileID: 4460067812276968086}
   bullet: {fileID: 8340994556531539925, guid: 7c05eb41322c7ca478fe64d6d25427d6, type: 3}
   bulletSpawnPos: {fileID: 698384783810352299}
   bulletSpeed: 20

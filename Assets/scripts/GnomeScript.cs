@@ -1,4 +1,4 @@
-using System.Resources;
+
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,6 +13,10 @@ public class GnomeScript : MonoBehaviour
     //1=chase
     //2=shoot
     int state;
+
+    public SpriteRenderer SprRenderer;
+    float flashTimer = 0.2f;
+    bool startFlashTimer = false;
 
    
     public GameObject bullet;
@@ -68,8 +72,22 @@ public class GnomeScript : MonoBehaviour
         {
             Shooting();
         }
-
-
+        if (startFlashTimer == true)
+        {
+            if (flashTimer > 0)
+            {
+                flashTimer -= Time.deltaTime;
+                if (flashTimer <= 0)
+                {
+                    SprRenderer.color = Color.white;
+                    flashTimer = 0.2f;
+                    startFlashTimer = false;
+                    
+                    
+                }
+            }
+        }
+       
         //print("enemy state is: " + state);
         //print("distance: " + distanceToPlayer);
         print("enemy health: " + enemyHealth);
@@ -178,6 +196,13 @@ public class GnomeScript : MonoBehaviour
         //die stuff
         Destroy(gameObject);
         isDead = true;
+    }
+
+    public void DamageFlash()
+    {
+        SprRenderer.color = Color.red;
+        startFlashTimer = true;
+         
     }
     
 
