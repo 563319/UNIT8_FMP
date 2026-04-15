@@ -8,6 +8,8 @@ public class PlayerScript : MonoBehaviour
 
     public Transform bulletSpawnPos;
 
+    
+
     public GameObject pauseMenu;
     //public GameObject MuzzleFlash;
 

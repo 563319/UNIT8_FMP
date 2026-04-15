@@ -1837,6 +1837,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Singleton
       objectReference: {fileID: 0}
+    - target: {fileID: 7819627371323987032, guid: c2facffa879d1e64a954bf99191369d8, type: 3}
+      propertyPath: playerAmmo
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

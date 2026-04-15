@@ -15,7 +15,7 @@ public class HealthPickupScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player") && SingletonScript.instance.playerHealth < 200)
         {
             
             SingletonScript.instance.playerHealth += 80;
