@@ -6,6 +6,8 @@ public class EndShootingScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject MuzzleFlash;
 
+    public Light gunLight;
+
     Animator animator;
 
     private void Start()
@@ -36,6 +38,19 @@ public class EndShootingScript : MonoBehaviour
         print("start muzzle flash");
         MuzzleFlash.SetActive(true);
         
+    }
+    public void EndLightFlash()
+    {
+
+        gunLight.gameObject.SetActive(false);
+
+    }
+
+    public void StartLightFlash()
+    {
+        
+        gunLight.gameObject.SetActive(true);
+
     }
 
 }
