@@ -22,6 +22,9 @@ public class PlayerScript : MonoBehaviour
     bool isGrounded;
     bool hasPressedEsc = false;
 
+    //line renderer timer
+    float lineTimer = 0.2f;
+    bool startLineTimer = false;
 
     //gunsprite anim
     public Animator gunAnim;
@@ -37,6 +40,7 @@ public class PlayerScript : MonoBehaviour
         HealthMax();
         AmmoMax();
         highScoreManager();
+        LineTimerUpdate();
 
     }
 
@@ -112,7 +116,8 @@ public class PlayerScript : MonoBehaviour
             lineRend.enabled = true;
             lineRend.SetPosition(0, bulletSpawnPos.position);
             lineRend.SetPosition(1, hitInfo.point);
-            ///
+            startLineTimer = true;
+            
 
 
 
@@ -200,6 +205,25 @@ public class PlayerScript : MonoBehaviour
         gunAnim.SetBool("isShooting", true);
         print("START shoot animation!");
 
+    }
+
+    void LineTimerUpdate()
+    {
+        if (startLineTimer == true)
+        {
+            if (lineTimer > 0)
+            {
+                lineTimer -= Time.deltaTime;
+                if (lineTimer <= 0)
+                {
+                    lineRend.enabled = false;
+                    lineTimer = 0.2f;
+                    startLineTimer = false;
+
+
+                }
+            }
+        }
     }
     private void OnGUI()
     {
