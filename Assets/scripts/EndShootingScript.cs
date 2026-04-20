@@ -25,12 +25,12 @@ public class EndShootingScript : MonoBehaviour
 
     public void EndShootingAnim()
     {
-       
-        
+
+        SingletonScript.instance.playerCanShoot = true;
         animator.SetBool("isIdle", true);
         animator.SetBool("isShooting", false);
         print("can shoot = true");
-        SingletonScript.instance.playerCanShoot = true;
+        
 
 
 
