@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour
     public float speed = 15f;
     public float jumpHeight = 3f;
     Vector3 velocity;
-    public float gravity = -9.9f;
+    public float gravity = -14f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;

@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06437c1ff663d574d9447842ba0a72e4, type: 3}
   m_Name: ScreenSpaceLensFlare
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.ScreenSpaceLensFlare
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 0
     m_Value: 1
@@ -271,10 +271,10 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.22
+    m_Value: 0.221
   response:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 0.676
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -293,13 +293,13 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.97057915, z: 0.98709905, w: 0.06836303}
+    m_Value: {x: 1, y: 0.97057915, z: 0.98709905, w: 0.028155679}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.9326933, y: 0.9212028, z: 1, w: 0.052717164}
+    m_Value: {x: 0.9326933, y: 0.9212028, z: 1, w: 0.10713393}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9952361, z: 0.8698236, w: 0.023419023}
+    m_Value: {x: 1, y: 0.9952361, z: 0.8698236, w: -0.2462439}
 --- !u!114 &4387193458749027946
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -383,16 +383,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
   m_Name: ShadowsMidtonesHighlights
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.ShadowsMidtonesHighlights
-  active: 0
+  active: 1
   shadows:
     m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.07025762}
   midtones:
     m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.9895324, y: 0.98889655, z: 1, w: 0.070257604}
   highlights:
     m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.9612199, y: 1, z: 0.97427225, w: -0.0000001771624}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
