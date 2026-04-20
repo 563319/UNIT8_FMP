@@ -36,7 +36,13 @@ public class GnomeScript : MonoBehaviour
 
     PlayerScript player;
     Transform playerTransform;
-    
+
+    AudioManagerScript audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManagerScript>();
+    }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -90,7 +96,7 @@ public class GnomeScript : MonoBehaviour
        
         //print("enemy state is: " + state);
         //print("distance: " + distanceToPlayer);
-        print("enemy health: " + enemyHealth);
+        
     }
     
 
@@ -163,6 +169,7 @@ public class GnomeScript : MonoBehaviour
         shotTimer += Time.deltaTime;
         if (shotTimer >= 1)
         {
+            audioManager.PlaySFX(audioManager.enemyShoot);
             GameObject clone;
             clone = Instantiate(bullet, bulletSpawnPos.position, gameObject.transform.rotation);
             rb = clone.GetComponent<Rigidbody>();

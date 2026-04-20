@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class AmmoPickupScript : MonoBehaviour
 {
+    AudioManagerScript audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManagerScript>();
+    }
     void Start()
     {
         
@@ -18,6 +23,7 @@ public class AmmoPickupScript : MonoBehaviour
         {
 
             SingletonScript.instance.playerAmmo += 20;
+            audioManager.PlaySFX(audioManager.collect);
             Destroy(gameObject);
         }
     }

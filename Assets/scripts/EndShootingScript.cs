@@ -9,6 +9,11 @@ public class EndShootingScript : MonoBehaviour
     public Light gunLight;
 
     Animator animator;
+    AudioManagerScript audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManagerScript>();
+    }
 
     private void Start()
     {
@@ -20,22 +25,27 @@ public class EndShootingScript : MonoBehaviour
 
     public void EndShootingAnim()
     {
-        print("END shoot animation!");
+       
+        
         animator.SetBool("isIdle", true);
         animator.SetBool("isShooting", false);
-        
+        print("can shoot = true");
+        SingletonScript.instance.playerCanShoot = true;
+
+
+
 
     }
     public void EndMuzzleFlash()
     {
-        print("end muzzle flash");
+        
         MuzzleFlash.SetActive(false);
         
     }
 
     public void StartMuzzleFlash()
     {
-        print("start muzzle flash");
+        
         MuzzleFlash.SetActive(true);
         
     }
@@ -52,5 +62,12 @@ public class EndShootingScript : MonoBehaviour
         gunLight.gameObject.SetActive(true);
 
     }
-
+    public void PlayGunSound()
+    {
+        audioManager.PlaySFX(audioManager.shoot);
+    }
+    public void RemoveBullet()
+    {
+        SingletonScript.instance.playerAmmo -= 1;
+    }
 }

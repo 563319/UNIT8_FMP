@@ -4,6 +4,8 @@ public class DoorScript : MonoBehaviour
 {
     public int ID;
     
+
+
     void Start()
     {
         

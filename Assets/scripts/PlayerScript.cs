@@ -31,6 +31,11 @@ public class PlayerScript : MonoBehaviour
     //gunsprite anim
     public Animator gunAnim;
 
+    AudioManagerScript audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManagerScript>();
+    }
     void Start()
     {
        
@@ -107,8 +112,12 @@ public class PlayerScript : MonoBehaviour
     }
     void shoot()
     {
-        SingletonScript.instance.playerAmmo -= 1;
+       
+        
         StartShootingAnim();
+        print("can shoot = false");
+        SingletonScript.instance.playerCanShoot = false;
+
         //MuzzleFlash.SetActive(true);
         RaycastHit hitInfo;
         bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
@@ -175,6 +184,7 @@ public class PlayerScript : MonoBehaviour
             if (SingletonScript.instance.playerKeys.Contains(col.gameObject.GetComponent<DoorScript>().ID))
             {
                 SingletonScript.instance.playerKeys.Remove(col.gameObject.GetComponent<DoorScript>().ID);
+                audioManager.PlaySFX(audioManager.door);
                 Destroy(col.gameObject);
             }
         }
@@ -205,7 +215,7 @@ public class PlayerScript : MonoBehaviour
     {
         gunAnim.SetBool("isIdle", false);
         gunAnim.SetBool("isShooting", true);
-        print("START shoot animation!");
+        
 
     }
 

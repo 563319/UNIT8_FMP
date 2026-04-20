@@ -13,6 +13,7 @@ public class SingletonScript : MonoBehaviour
     public int playerAmmo = 0;
     //public int[] playerKeys;
     public List<int> playerKeys = new List<int>();
+    public bool playerCanShoot = true;
 
 
     

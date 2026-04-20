@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class HealthPickupScript : MonoBehaviour
 {
-    
+    AudioManagerScript audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManagerScript>();
+    }
+
     void Start()
     {
         
@@ -17,7 +22,7 @@ public class HealthPickupScript : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player") && SingletonScript.instance.playerHealth < 200)
         {
-            
+            audioManager.PlaySFX(audioManager.collect);
             SingletonScript.instance.playerHealth += 80;
             Destroy(gameObject);
         }
