@@ -195,7 +195,9 @@ public class PlayerScript : MonoBehaviour
         if (SingletonScript.instance.highScore < SingletonScript.instance.score)
         {
             SingletonScript.instance.highScore = SingletonScript.instance.score;
+            SingletonScript.instance.SetHighScore();
         }
+        
     }
     void death()
     {

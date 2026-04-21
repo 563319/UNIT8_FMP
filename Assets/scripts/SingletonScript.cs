@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SingletonScript : MonoBehaviour
 {
+    public float mouseSensitivity = 800f;
+
     public static SingletonScript instance;
     ///plr stuff
     public int highScore = 0;
@@ -14,6 +16,8 @@ public class SingletonScript : MonoBehaviour
     //public int[] playerKeys;
     public List<int> playerKeys = new List<int>();
     public bool playerCanShoot = true;
+
+    
 
 
     
@@ -37,9 +41,41 @@ public class SingletonScript : MonoBehaviour
         }
     }
 
-    
-   
-   
+
+
+
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("highScore"))
+        {
+            LoadHighScore();
+        }
+        else
+        {
+            SetHighScore();
+
+        }
+
+
+    }
+
+
+
+    public void SetHighScore()//this is called in player when score is higher than highscore
+    {
+
+        PlayerPrefs.SetInt("highScore", highScore);//save to the prefs for future
+
+    }
+
+    private void LoadHighScore()
+    {
+        highScore = PlayerPrefs.GetInt("highScore");
+        SetHighScore();
+
+    }
+
+
 
 
 }
