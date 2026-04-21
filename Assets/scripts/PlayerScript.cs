@@ -78,12 +78,12 @@ public class PlayerScript : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
 
-            if (Input.GetKeyDown("Fire1") && SingletonScript.instance.playerAmmo > 0)
+            if (Input.GetButtonDown("Fire1") && SingletonScript.instance.playerAmmo > 0)
             {
                 shoot();
             }
 
-            if (Input.GetKeyDown("Cancel"))
+            if (Input.GetButtonDown("Cancel"))
             {
                 print("pressed esc");
                 if (hasPressedEsc == false)
