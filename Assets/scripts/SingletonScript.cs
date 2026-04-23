@@ -18,6 +18,9 @@ public class SingletonScript : MonoBehaviour
     public bool playerCanShoot = true;
 
     
+    public float quickestTime;
+
+    
 
 
     
@@ -55,6 +58,15 @@ public class SingletonScript : MonoBehaviour
             SetHighScore();
 
         }
+        if (PlayerPrefs.HasKey("quickestTime"))
+        {
+            LoadQuickestTime();
+        }
+        else
+        {
+            SetQuickestTime();
+
+        }
 
 
     }
@@ -71,6 +83,20 @@ public class SingletonScript : MonoBehaviour
     private void LoadHighScore()
     {
         highScore = PlayerPrefs.GetInt("highScore");
+        SetHighScore();
+
+    }
+
+    public void SetQuickestTime()//this is called in player when score is higher than highscore
+    {
+
+        PlayerPrefs.SetFloat("quickestTime", quickestTime);//save to the prefs for future
+
+    }
+
+    private void LoadQuickestTime()
+    {
+        quickestTime = PlayerPrefs.GetFloat("quickestTime");
         SetHighScore();
 
     }

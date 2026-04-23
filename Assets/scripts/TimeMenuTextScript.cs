@@ -7,7 +7,10 @@ public class TimeMenuTextScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        timeText.text = "BEST TIME: " + SingletonScript.instance.highScore.ToString();
+        int minutes = Mathf.FloorToInt(SingletonScript.instance.quickestTime / 60);
+        int seconds = Mathf.FloorToInt(SingletonScript.instance.quickestTime % 60);
+        timeText.text = string.Format("BEST TIME: {0:00}:{1:00}", minutes, seconds);
+        
     }
 
     // Update is called once per frame

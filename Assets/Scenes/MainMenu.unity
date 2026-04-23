@@ -3456,6 +3456,7 @@ GameObject:
   - component: {fileID: 1053962418}
   - component: {fileID: 1053962420}
   - component: {fileID: 1053962419}
+  - component: {fileID: 1053962421}
   m_Layer: 5
   m_Name: bestTimeText
   m_TagString: Untagged
@@ -3582,6 +3583,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053962417}
   m_CullTransparentMesh: 1
+--- !u!114 &1053962421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053962417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0467b08b1006e2f44ac366e367e6f891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeMenuTextScript
+  timeText: {fileID: 1053962419}
 --- !u!1 &1083669157
 GameObject:
   m_ObjectHideFlags: 0

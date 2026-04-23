@@ -18,6 +18,14 @@ public class SpeedrunTimerScript : MonoBehaviour
         int minutes = Mathf.FloorToInt(elapsedTimer / 60);
         int seconds = Mathf.FloorToInt(elapsedTimer % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+       
+        if (SingletonScript.instance.quickestTime < elapsedTimer)
+        {
+            SingletonScript.instance.quickestTime = elapsedTimer;
+            SingletonScript.instance.SetQuickestTime();
+        }
+
+
 
     }
 }
