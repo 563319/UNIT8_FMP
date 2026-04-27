@@ -12,7 +12,7 @@ public class EndScreenCurrentTimeScript : MonoBehaviour
         float elapsedTimer = speedrunTimerScript.elapsedTimer;
         int minutes = Mathf.FloorToInt(elapsedTimer / 60);
         int seconds = Mathf.FloorToInt(elapsedTimer % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = string.Format("TIME: {0:00}:{1:00}", minutes, seconds);
 
     }
 
