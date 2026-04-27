@@ -13,7 +13,7 @@ public class EndScreenScript : MonoBehaviour
 
         endScreen.SetActive(true);
         //uI.SetActive(true);
-        Time.timeScale = 0;
+        
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         EventSystem.current.SetSelectedGameObject(null);
@@ -41,5 +41,9 @@ public class EndScreenScript : MonoBehaviour
         SingletonScript.instance.playerKeys = new List<int>();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+    }
+    public void PauseTime()
+    {
+        Time.timeScale = 0;
     }
 }

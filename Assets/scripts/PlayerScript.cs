@@ -249,6 +249,7 @@ public class PlayerScript : MonoBehaviour
     }
     private void OnGUI()
     {
+        /*
         string text = "plr health: " + SingletonScript.instance.playerHealth;
         text += "\nplr ammo: " + SingletonScript.instance.playerAmmo;
         text += "\nscore: " + SingletonScript.instance.score;
@@ -257,6 +258,7 @@ public class PlayerScript : MonoBehaviour
         GUILayout.BeginArea(new Rect(10f, 450f, 1600f, 1600f));
         GUILayout.Label($"<size=18>{text}</size>");
         GUILayout.EndArea();
+        */
         
     }
 
