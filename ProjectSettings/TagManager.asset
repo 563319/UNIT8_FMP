@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - MuzzleFlash
   - Audio
+  - End
   layers:
   - Default
   - TransparentFX

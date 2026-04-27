@@ -97,7 +97,7 @@ public class SingletonScript : MonoBehaviour
     private void LoadQuickestTime()
     {
         quickestTime = PlayerPrefs.GetFloat("quickestTime");
-        SetHighScore();
+        SetQuickestTime();
 
     }
 

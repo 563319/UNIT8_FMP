@@ -11,13 +11,16 @@ public class PlayerScript : MonoBehaviour
     
 
     public GameObject pauseMenu;
+    public GameObject deathScreen;
     //public GameObject MuzzleFlash;
+
+    public bool hasFinishedLevel = false;
 
     public CharacterController controller;
     public float speed = 15f;
     public float jumpHeight = 3f;
     Vector3 velocity;
-    public float gravity = -14f;
+    public float gravity = -20f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -112,7 +115,7 @@ public class PlayerScript : MonoBehaviour
     }
     void shoot()
     {
-       
+
         
         StartShootingAnim();
         print("can shoot = false");
@@ -188,6 +191,7 @@ public class PlayerScript : MonoBehaviour
                 Destroy(col.gameObject);
             }
         }
+        
     }
     void highScoreManager()
     {
@@ -201,6 +205,9 @@ public class PlayerScript : MonoBehaviour
     }
     void death()
     {
+
+        deathScreen.GetComponent<DeathScreenScript>().Pause();
+        /*
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -211,6 +218,7 @@ public class PlayerScript : MonoBehaviour
         SingletonScript.instance.playerKeys = new List<int>();
 
         SceneManager.LoadScene(0);
+        */
     }
 
     public void StartShootingAnim()

@@ -1,10 +1,12 @@
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
 public class SpeedrunTimerScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    float elapsedTimer;
+    public float elapsedTimer;
+    public PlayerScript plr;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +21,7 @@ public class SpeedrunTimerScript : MonoBehaviour
         int seconds = Mathf.FloorToInt(elapsedTimer % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
        
-        if (SingletonScript.instance.quickestTime < elapsedTimer)
+        if (elapsedTimer < SingletonScript.instance.quickestTime && plr.hasFinishedLevel == true)
         {
             SingletonScript.instance.quickestTime = elapsedTimer;
             SingletonScript.instance.SetQuickestTime();

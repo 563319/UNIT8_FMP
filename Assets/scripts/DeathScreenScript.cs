@@ -3,21 +3,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class PauseMenuScript : MonoBehaviour
+public class DeathScreenScript : MonoBehaviour
 {
-    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject deathScreen;
     //[SerializeField] GameObject uI;
-    public GameObject newButtonResume;
-
+    public GameObject newButtonMenu;
     public void Pause()
     {
-        pauseMenu.SetActive(true);
+        
+        deathScreen.SetActive(true);
         //uI.SetActive(true);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(newButtonResume);
+        EventSystem.current.SetSelectedGameObject(newButtonMenu);
     }
 
     public void Home()
@@ -30,15 +30,6 @@ public class PauseMenuScript : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
 
-    }
-
-    public void Resume()
-    {
-        pauseMenu.SetActive(false);
-        //uI.SetActive(true);
-        Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     public void Restart()
