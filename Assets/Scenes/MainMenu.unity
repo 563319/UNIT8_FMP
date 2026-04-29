@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 162965134}
   - component: {fileID: 162965138}
   - component: {fileID: 162965139}
+  - component: {fileID: 162965140}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -529,7 +530,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -588,6 +589,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouseSettingsScript
   sensitivitySlider: {fileID: 354186412}
+--- !u!114 &162965140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162965133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0817e18721826d34bab576f68b4538e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuScript
+  newButtonOptions: {fileID: 867506518}
+  newButtonQuit: {fileID: 674673544}
+  newButtonHelp: {fileID: 1335560564}
+  newButtonMain: {fileID: 109477568}
 --- !u!1 &186516170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3079,7 +3096,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2113221769}
   - {fileID: 109477569}
   - {fileID: 1298169206}
   - {fileID: 2015852828}
@@ -3090,6 +3106,7 @@ RectTransform:
   - {fileID: 906568461}
   - {fileID: 557643792}
   - {fileID: 1873218447}
+  - {fileID: 2113221769}
   m_Father: {fileID: 162965137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3104,7 +3121,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867202454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0817e18721826d34bab576f68b4538e0, type: 3}
   m_Name: 

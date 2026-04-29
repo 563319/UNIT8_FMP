@@ -8,6 +8,16 @@ public class MainMenuScript : MonoBehaviour
     public GameObject newButtonQuit;
     public GameObject newButtonHelp;
     public GameObject newButtonMain;
+
+    /*
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+    }
+    */
     public void playGame()
     {
         SceneManager.LoadSceneAsync(1);
