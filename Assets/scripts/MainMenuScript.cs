@@ -18,10 +18,7 @@ public class MainMenuScript : MonoBehaviour
         }
     }
     */
-    private void Awake()
-    {
-        EventSystem.current.SetSelectedGameObject(null);
-    }
+    
     public void playGame()
     {
         SceneManager.LoadSceneAsync(1);

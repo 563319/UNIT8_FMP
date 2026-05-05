@@ -5190,12 +5190,12 @@ MonoBehaviour:
     left stick)
 
     SHOOT = (keyboard/mouse: left mouse button)     (controller:
-    right trigger)
+    right trigger/A button)
 
-    PAUSE = (keyboard/mouse: escape key)     (controller: menu)
+    PAUSE = (keyboard/mouse: escape key)     (controller:
+    menu)
 
-    CAMERA
-    = (keyboard/mouse: mouse)     (controller: right stick)
+    CAMERA = (keyboard/mouse: mouse)     (controller: right stick)
 
 
 

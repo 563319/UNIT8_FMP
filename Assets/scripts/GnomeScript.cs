@@ -18,7 +18,9 @@ public class GnomeScript : MonoBehaviour
     float flashTimer = 0.2f;
     bool startFlashTimer = false;
 
-   
+    float deathTimer = 5;
+    bool startDeathTimer = false;
+
     public GameObject bullet;
     public Transform bulletSpawnPos;
     public float bulletSpeed = 20;
@@ -63,40 +65,59 @@ public class GnomeScript : MonoBehaviour
             EnemyDeath();
 
         }
-
-        if (state==0)
+        if (isDead == false)
         {
-            Idle(); //the state is responsible for changing to the next state
-        }
-
-        if (state == 1)
-        {
-            Chasing();
-        }
-
-        if (state == 2)
-        {
-            Shooting();
-        }
-        if (startFlashTimer == true)
-        {
-            if (flashTimer > 0)
+            if (state == 0)
             {
-                flashTimer -= Time.deltaTime;
-                if (flashTimer <= 0)
+                Idle(); //the state is responsible for changing to the next state
+            }
+
+            if (state == 1)
+            {
+                Chasing();
+            }
+
+            if (state == 2)
+            {
+                Shooting();
+            }
+            if (startFlashTimer == true)
+            {
+                if (flashTimer > 0)
                 {
-                    SprRenderer.color = Color.white;
-                    flashTimer = 0.2f;
-                    startFlashTimer = false;
-                    
-                    
+                    flashTimer -= Time.deltaTime;
+                    if (flashTimer <= 0)
+                    {
+                        SprRenderer.color = Color.white;
+                        flashTimer = 0.2f;
+                        startFlashTimer = false;
+
+
+                    }
+                }
+            }
+            
+        }
+        if (startDeathTimer == true)
+        {
+            if (deathTimer > 0)
+            {
+                deathTimer -= Time.deltaTime;
+                if (deathTimer <= 0)
+                {
+
+                    Destroy(gameObject);
+                    deathTimer = 5f;
+                    startDeathTimer = false;
+
+
                 }
             }
         }
-       
+
         //print("enemy state is: " + state);
         //print("distance: " + distanceToPlayer);
-        
+
     }
     
 
@@ -198,11 +219,17 @@ public class GnomeScript : MonoBehaviour
 
     }
     void EnemyDeath()
-    { 
-        
+    {
+        print("enemy death");
+        SprRenderer.color = Color.white;
         //die stuff
-        Destroy(gameObject);
+        
+        startDeathTimer = true;
+        anim.SetBool("isDead", true);
+        anim.SetBool("isMoving", false);
+        anim.SetBool("isShooting", false);
         isDead = true;
+
     }
 
     public void DamageFlash()
