@@ -7288,6 +7288,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gnome
       objectReference: {fileID: 0}
+    - target: {fileID: 4460067812276968086, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
+      propertyPath: m_Size.x
+      value: 8.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460067812276968086, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
+      propertyPath: m_Size.y
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460067812276968086, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0ecbb2b7da93fb74b98f81daaba59f4a, type: 3}
+    - target: {fileID: 4460067812276968086, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7016171794084451507, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.856613

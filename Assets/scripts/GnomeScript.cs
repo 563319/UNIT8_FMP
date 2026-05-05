@@ -18,7 +18,7 @@ public class GnomeScript : MonoBehaviour
     float flashTimer = 0.2f;
     bool startFlashTimer = false;
 
-    float deathTimer = 5;
+    float deathTimer = 10f;
     bool startDeathTimer = false;
 
     public GameObject bullet;
@@ -107,7 +107,7 @@ public class GnomeScript : MonoBehaviour
                 {
 
                     Destroy(gameObject);
-                    deathTimer = 5f;
+                    deathTimer = 10f;
                     startDeathTimer = false;
 
 
