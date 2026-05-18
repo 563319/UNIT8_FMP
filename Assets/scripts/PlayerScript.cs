@@ -76,6 +76,7 @@ public class PlayerScript : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
+                audioManager.PlaySFX(audioManager.jump);
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
             velocity.y += gravity * Time.deltaTime;
@@ -141,7 +142,7 @@ public class PlayerScript : MonoBehaviour
             Debug.DrawRay(bulletSpawnPos.position, bulletSpawnPos.forward, Color.red);
             Debug.Log(hitInfo.collider.gameObject.name);
 
-            //enemy damage
+            //damageing the enemy
             if (hitInfo.collider.gameObject.tag == "Enemy")
             {
                 
@@ -205,7 +206,7 @@ public class PlayerScript : MonoBehaviour
     }
     void death()
     {
-
+        audioManager.PlaySFX(audioManager.plrDeath);
         deathScreen.GetComponent<DeathScreenScript>().Pause();
         /*
         Cursor.lockState = CursorLockMode.None;

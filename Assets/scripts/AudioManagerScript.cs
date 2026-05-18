@@ -13,6 +13,13 @@ public class AudioManagerScript : MonoBehaviour
     public AudioClip enemyShoot;
     public AudioClip collect;
 
+    public AudioClip hurt;
+    public AudioClip jump;
+    public AudioClip heal;
+    public AudioClip UiClick;
+    public AudioClip UiClick2;
+    public AudioClip plrDeath;
+
     private void Start()
     {
         musicSource.clip = background;

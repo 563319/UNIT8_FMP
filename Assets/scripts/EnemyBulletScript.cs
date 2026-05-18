@@ -3,7 +3,11 @@ using UnityEngine;
 public class EnemyBulletScript : MonoBehaviour
 {
     float destroyTimer = 0;
-    
+    AudioManagerScript audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManagerScript>();
+    }
     void Start()
     {
         
@@ -29,6 +33,7 @@ public class EnemyBulletScript : MonoBehaviour
         {
             Destroy(gameObject);
             SingletonScript.instance.playerHealth -= 20;
+            audioManager.PlaySFX(audioManager.enemyShoot);
         }
     }
 }

@@ -18,7 +18,14 @@ public class MainMenuScript : MonoBehaviour
         }
     }
     */
-    
+    AudioManagerScript audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManagerScript>();
+    }
+
+
+
     public void playGame()
     {
         SceneManager.LoadSceneAsync(1);
@@ -27,8 +34,16 @@ public class MainMenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+    public void PlayUIsound()
+    {
 
-    
+        audioManager.PlaySFX(audioManager.UiClick);
+    }
+    public void PlayUIsound2()
+    {
+        audioManager.PlaySFX(audioManager.UiClick2);
+    }
+
     public void ReassignOptions()
     {
         EventSystem.current.SetSelectedGameObject(null);
