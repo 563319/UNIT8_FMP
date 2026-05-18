@@ -5592,7 +5592,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 1.2
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -6785,7 +6785,7 @@ MonoBehaviour:
   deathScreen: {fileID: 1473525449}
   hasFinishedLevel: 0
   controller: {fileID: 501939337}
-  speed: 15
+  speed: 14
   jumpHeight: 3
   gravity: -20
   groundCheck: {fileID: 1440569896}
@@ -30039,7 +30039,7 @@ MonoBehaviour:
   m_Shape:
     rid: 4175460738305884406
   m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_UnmodifiedMeshVersion: 5140
+  m_UnmodifiedMeshVersion: 5861
   m_Size: {x: 3, y: 8, z: -3}
   m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
@@ -31079,7 +31079,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1152525611}
-  m_VersionIndex: 5140
+  m_VersionIndex: 5861
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
