@@ -3,7 +3,7 @@ using UnityEngine;
 public class HealthPickupScript : MonoBehaviour
 {
     AudioManagerScript audioManager;
-    public ParticleSystem partSyst;
+   
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManagerScript>();
@@ -25,7 +25,7 @@ public class HealthPickupScript : MonoBehaviour
         {
             audioManager.PlaySFX(audioManager.collect);
             SingletonScript.instance.playerHealth += 80;
-            partSyst.Play();
+            
             Destroy(gameObject);
         }
     }
