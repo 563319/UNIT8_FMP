@@ -36,7 +36,7 @@ public class EnemyBulletScript : MonoBehaviour
             print("destroyed by player");
             Destroy(gameObject);
             SingletonScript.instance.playerHealth -= 20;
-            audioManager.PlaySFX(audioManager.enemyShoot);
+            //audioManager.PlaySFX(audioManager.enemyShoot);
         }
     }
 }

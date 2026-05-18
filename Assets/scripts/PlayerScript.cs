@@ -51,7 +51,7 @@ public class PlayerScript : MonoBehaviour
         AmmoMax();
         highScoreManager();
         LineTimerUpdate();
-
+        print(SingletonScript.instance.mouseSensitivity);
     }
 
 

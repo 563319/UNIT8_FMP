@@ -31,6 +31,7 @@ public class GnomeScript : MonoBehaviour
 
     float shotTimer = 0f;
 
+    bool canShoot = true;
 
     float distanceToPlayer;
 
@@ -114,9 +115,10 @@ public class GnomeScript : MonoBehaviour
                 }
             }
         }
-
+        
         //print("enemy state is: " + state);
         //print("distance: " + distanceToPlayer);
+        print("enemy can shoot = " + canShoot);
 
     }
     
@@ -183,16 +185,15 @@ public class GnomeScript : MonoBehaviour
             anim.SetBool("isMoving", false);
         }
 
+        
 
 
-
-
-
-        print("before" + shotTimer);
+        print("shot timer = " + shotTimer);
+        
         //do shooting
         shotTimer += Time.deltaTime;
-        print("after " + shotTimer);
-        if (shotTimer >= 2)
+   
+        if (shotTimer >= 1 && CheckIfWallInFront() == false)
         {
             print(distanceToPlayer);
             print("gnome shot timer >=1");
@@ -207,8 +208,13 @@ public class GnomeScript : MonoBehaviour
 
             rb.linearVelocity = clone.transform.forward * bulletSpeed;
             audioManager.PlaySFX(audioManager.enemyShoot);
+            //shotTimer = 0;
+        }
+        if (shotTimer >= 1)
+        {
             shotTimer = 0;
         }
+
         // if player is outside shooting radius but inside agro radius
         if (distanceToPlayer > shootingRadius && distanceToPlayer < agroRadius)
         {
@@ -244,6 +250,35 @@ public class GnomeScript : MonoBehaviour
         SprRenderer.color = Color.red;
         startFlashTimer = true;
          
+    }
+    public bool CheckIfWallInFront()
+    {
+        //raycast so gnome wont shoot behind a wall
+        RaycastHit hitInfo;
+        bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
+        if (hit)
+        {
+
+            Debug.DrawRay(bulletSpawnPos.position, bulletSpawnPos.forward, Color.red);
+            Debug.Log(hitInfo.collider.gameObject.name);
+
+            
+            if (hitInfo.collider.gameObject.layer == 3)
+            {
+                return true;
+                //theres a wall
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        else
+        {
+            return false;
+        }
     }
     
 

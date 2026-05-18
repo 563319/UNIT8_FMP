@@ -4490,7 +4490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 374, y: 489}
+  m_AnchoredPosition: {x: 338, y: 489}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &194187578
@@ -17422,6 +17422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gnome
       objectReference: {fileID: 0}
+    - target: {fileID: 3867125726233364219, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7016171794084451507, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.753784
@@ -17524,7 +17528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 9449103370807b54ebf3e93fa8de3ab3, type: 3}
+  m_Texture: {fileID: 2800000, guid: 36c9649e355da76449ff55c01c7ef1f3, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -29576,7 +29580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 443.7268, y: 1022}
+  m_AnchoredPosition: {x: 479.3, y: 1022}
   m_SizeDelta: {x: 486.5601, y: 70.6632}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1770798139
@@ -33087,7 +33091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7016171794084451507, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.7
+      value: -17.07
       objectReference: {fileID: 0}
     - target: {fileID: 7016171794084451507, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33095,7 +33099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7016171794084451507, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.21
+      value: -35.87
       objectReference: {fileID: 0}
     - target: {fileID: 7016171794084451507, guid: 393dae3648f96704d9f5bb97936e38f1, type: 3}
       propertyPath: m_LocalRotation.w
