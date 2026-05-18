@@ -10,6 +10,8 @@ public class EndShootingScript : MonoBehaviour
 
     Animator animator;
     AudioManagerScript audioManager;
+
+    
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManagerScript>();

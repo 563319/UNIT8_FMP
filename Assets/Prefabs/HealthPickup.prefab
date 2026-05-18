@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ae5156fad211b41ae47c467d8888e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthPickupScript
+  partSyst: {fileID: 0}
 --- !u!114 &3024235428603533152
 MonoBehaviour:
   m_ObjectHideFlags: 0

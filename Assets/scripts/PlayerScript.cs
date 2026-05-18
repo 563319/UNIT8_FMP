@@ -34,6 +34,8 @@ public class PlayerScript : MonoBehaviour
     //gunsprite anim
     public Animator gunAnim;
 
+    
+
     AudioManagerScript audioManager;
     private void Awake()
     {
