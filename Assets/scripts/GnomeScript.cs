@@ -184,13 +184,19 @@ public class GnomeScript : MonoBehaviour
         }
 
 
-            Rigidbody rb;
 
+
+
+
+        print("before" + shotTimer);
         //do shooting
         shotTimer += Time.deltaTime;
-        if (shotTimer >= 1)
+        print("after " + shotTimer);
+        if (shotTimer >= 2)
         {
-            audioManager.PlaySFX(audioManager.enemyShoot);
+            print(distanceToPlayer);
+            print("gnome shot timer >=1");
+            Rigidbody rb;
             GameObject clone;
             clone = Instantiate(bullet, bulletSpawnPos.position, gameObject.transform.rotation);
             rb = clone.GetComponent<Rigidbody>();
@@ -200,6 +206,7 @@ public class GnomeScript : MonoBehaviour
 
 
             rb.linearVelocity = clone.transform.forward * bulletSpeed;
+            audioManager.PlaySFX(audioManager.enemyShoot);
             shotTimer = 0;
         }
         // if player is outside shooting radius but inside agro radius

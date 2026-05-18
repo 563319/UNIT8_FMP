@@ -16,6 +16,7 @@ public class EnemyBulletScript : MonoBehaviour
     
     void Update()
     {
+
         destroyTimer += Time.deltaTime;
 
         if (destroyTimer > 6)
@@ -27,10 +28,12 @@ public class EnemyBulletScript : MonoBehaviour
     {
         if (col.gameObject.layer == 3)
         {
+            print("hit layer3");
             Destroy(gameObject);
         }
         if (col.gameObject.tag == "Player")
         {
+            print("destroyed by player");
             Destroy(gameObject);
             SingletonScript.instance.playerHealth -= 20;
             audioManager.PlaySFX(audioManager.enemyShoot);
