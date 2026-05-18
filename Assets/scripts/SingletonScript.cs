@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SingletonScript : MonoBehaviour
 {
-    public float mouseSensitivity = 800f;
+    public float mouseSensitivity = 300f;
 
     public static SingletonScript instance;
     ///plr stuff
