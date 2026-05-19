@@ -255,7 +255,7 @@ public class GnomeScript : MonoBehaviour
         print("enemy death");
         SprRenderer.color = Color.white;
         //die stuff
-        
+        agent.destination = transform.position;
         startDeathTimer = true;
         anim.SetBool("isDead", true);
         anim.SetBool("isMoving", false);
