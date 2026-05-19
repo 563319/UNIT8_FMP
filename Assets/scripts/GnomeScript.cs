@@ -40,6 +40,8 @@ public class GnomeScript : MonoBehaviour
     PlayerScript player;
     Transform playerTransform;
 
+    public Vector3 shootOffset;
+
     AudioManagerScript audioManager;
     private void Awake()
     {
@@ -53,6 +55,7 @@ public class GnomeScript : MonoBehaviour
         playerTransform = player.transform;
 
         state = 0;
+        shootOffset = new Vector3(0, 0, 0);
 
 
     }
@@ -60,6 +63,22 @@ public class GnomeScript : MonoBehaviour
     
     void Update()
     {
+
+        /*   to see enemy raycast
+        Vector3 pos = bulletSpawnPos.position + shootOffset;
+
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+
+        //raycast so gnome wont shoot behind a wall
+        RaycastHit hitInfo;
+        bool hit = Physics.Raycast(pos, direction, out hitInfo, 50f);
+        Debug.DrawRay(pos, direction * 50f, Color.red);
+        */
+
+
+
+
+        //print("distance to player = " + distanceToPlayer);
         distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         if (enemyHealth <= 0)
         {
@@ -195,7 +214,7 @@ public class GnomeScript : MonoBehaviour
    
         if (shotTimer >= 1 && CheckIfWallInFront() == false)
         {
-            print(distanceToPlayer);
+            
             print("gnome shot timer >=1");
             Rigidbody rb;
             GameObject clone;
@@ -253,34 +272,48 @@ public class GnomeScript : MonoBehaviour
     }
     public bool CheckIfWallInFront()
     {
+
+        Vector3 pos = bulletSpawnPos.position + shootOffset;
+
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+
         //raycast so gnome wont shoot behind a wall
         RaycastHit hitInfo;
-        bool hit = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out hitInfo);
+        bool hit = Physics.Raycast(pos, direction, out hitInfo, 50f);
+        Debug.DrawRay(pos, direction * 50f, Color.red);
+        
+        //Debug.Log(hitInfo.collider.gameObject.name);
         if (hit)
         {
 
-            Debug.DrawRay(bulletSpawnPos.position, bulletSpawnPos.forward, Color.red);
-            Debug.Log(hitInfo.collider.gameObject.name);
-
+            
+            
             
             if (hitInfo.collider.gameObject.layer == 3)
             {
+                canShoot = false;
                 return true;
                 //theres a wall
+                
 
             }
             else
+
             {
+                canShoot = true;
                 return false;
+                
             }
 
         }
         else
         {
+            canShoot = true;
             return false;
+           
         }
     }
-    
+   
 
 
 
