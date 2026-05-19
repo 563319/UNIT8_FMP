@@ -17,8 +17,8 @@ public class PlayerScript : MonoBehaviour
     public bool hasFinishedLevel = false;
 
     public CharacterController controller;
-    public float speed = 12f;
-    public float jumpHeight = 3f;
+    public float speed = 9f;
+    public float jumpHeight = 2f;
     Vector3 velocity;
     public float gravity = -20f;
     public Transform groundCheck;
