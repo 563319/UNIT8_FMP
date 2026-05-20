@@ -28,6 +28,7 @@ public class VolmuneSettingsScript : MonoBehaviour
         float musicVolume = musicSlider.value;
         myMixer.SetFloat("music", Mathf.Log10(musicVolume)*20);
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+        PlayerPrefs.Save();
 
     }
     public void SetSFXVolume()
@@ -35,6 +36,7 @@ public class VolmuneSettingsScript : MonoBehaviour
         float sfxVolume = SFXSlider.value;
         myMixer.SetFloat("SFX", Mathf.Log10(sfxVolume)*20);
         PlayerPrefs.SetFloat("SFXVolume", sfxVolume);
+        PlayerPrefs.Save();
 
     }
     private void LoadVolume()

@@ -30,7 +30,7 @@ public class MouseSettingsScript : MonoBehaviour
         SingletonScript.instance.mouseSensitivity = mouseSensitivity;//save to the game
 
         PlayerPrefs.SetFloat("sensitivity", mouseSensitivity);//save to the prefs for future
-
+        PlayerPrefs.Save();
     }
     
     private void LoadSensitivity()

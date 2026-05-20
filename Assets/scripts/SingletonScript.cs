@@ -49,23 +49,26 @@ public class SingletonScript : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("highScore"))
+        if (PlayerPrefs.HasKey("highScore") == true)
         {
             LoadHighScore();
+            print("loaded highscore");
         }
         else
         {
             SetHighScore();
+            print("set highscore");
 
         }
         if (PlayerPrefs.HasKey("quickestTime"))
         {
             LoadQuickestTime();
+            print("loaded quickest time");
         }
         else
         {
             SetQuickestTime();
-
+            print("set teh wuickest time");
         }
 
 
@@ -77,7 +80,7 @@ public class SingletonScript : MonoBehaviour
     {
 
         PlayerPrefs.SetInt("highScore", highScore);//save to the prefs for future
-
+        PlayerPrefs.Save();
     }
 
     private void LoadHighScore()
