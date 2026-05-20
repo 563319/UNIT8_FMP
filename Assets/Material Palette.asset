@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1ca63a91b17724bbd99c8fa67e0180, type: 3}
   m_Name: Material Palette
   m_EditorClassIdentifier: Unity.ProBuilder.Editor::UnityEditor.ProBuilder.MaterialPalette
-  array: []
+  array:
+  - {fileID: 2100000, guid: 215274bb3ad745445aa44e37ef4d1e0a, type: 2}
+  - {fileID: 2100000, guid: 0c96d7e5d68b4ed4e947347ab702f1fe, type: 2}
+  - {fileID: 2100000, guid: e245d2d8a9f16864681345e96f27821d, type: 2}
+  - {fileID: 2100000, guid: 948cd8ccbcc6f3f4aa8cab821f93d3fd, type: 2}
+  - {fileID: 2100000, guid: 8f9acb1f086a7dd45b1e04b502f13a6d, type: 2}
+  - {fileID: 2100000, guid: 1b77854f2da486f4faec9060bb6fc46a, type: 2}
+  - {fileID: 2100000, guid: 152316eb08821ba439bf7ea865c19626, type: 2}
+  - {fileID: 2100000, guid: 52594df1e502336478a461ffa5e021c4, type: 2}
+  - {fileID: 2100000, guid: 37771f07103e77c41a93271209884ccb, type: 2}
+  - {fileID: 2100000, guid: 70433ac3f0a404542a04e6b853b039fb, type: 2}
