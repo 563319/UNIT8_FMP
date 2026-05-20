@@ -91,6 +91,7 @@ public class SingletonScript : MonoBehaviour
     {
 
         PlayerPrefs.SetFloat("quickestTime", quickestTime);//save to the prefs for future
+        PlayerPrefs.Save();
 
     }
 
@@ -98,6 +99,7 @@ public class SingletonScript : MonoBehaviour
     {
         quickestTime = PlayerPrefs.GetFloat("quickestTime");
         SetQuickestTime();
+        
 
     }
 
