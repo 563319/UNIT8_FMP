@@ -203,6 +203,7 @@ public class PlayerScript : MonoBehaviour
         {
             SingletonScript.instance.highScore = SingletonScript.instance.score;
             SingletonScript.instance.SetHighScore();
+            
         }
         
     }

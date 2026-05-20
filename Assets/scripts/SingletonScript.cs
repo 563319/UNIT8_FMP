@@ -60,6 +60,8 @@ public class SingletonScript : MonoBehaviour
             print("set highscore");
 
         }
+
+
         if (PlayerPrefs.HasKey("quickestTime"))
         {
             LoadQuickestTime();
@@ -68,7 +70,7 @@ public class SingletonScript : MonoBehaviour
         else
         {
             SetQuickestTime();
-            print("set teh wuickest time");
+            print("set the Quickest time");
         }
 
 
@@ -86,7 +88,7 @@ public class SingletonScript : MonoBehaviour
     private void LoadHighScore()
     {
         highScore = PlayerPrefs.GetInt("highScore");
-        SetHighScore();
+        //SetHighScore();
 
     }
 
@@ -101,12 +103,15 @@ public class SingletonScript : MonoBehaviour
     private void LoadQuickestTime()
     {
         quickestTime = PlayerPrefs.GetFloat("quickestTime");
-        SetQuickestTime();
+        //SetQuickestTime();
         
 
     }
 
 
 
-
+    private void Update()
+    {
+        print("QuickestTime" + quickestTime);
+    }
 }

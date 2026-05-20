@@ -20,13 +20,16 @@ public class SpeedrunTimerScript : MonoBehaviour
         int minutes = Mathf.FloorToInt(elapsedTimer / 60);
         int seconds = Mathf.FloorToInt(elapsedTimer % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-       
-        if (elapsedTimer < SingletonScript.instance.quickestTime && plr.hasFinishedLevel == true)
-        {
-            SingletonScript.instance.quickestTime = elapsedTimer;
-            SingletonScript.instance.SetQuickestTime();
-        }
 
+        if (plr.hasFinishedLevel == true)
+        {
+            if (elapsedTimer < SingletonScript.instance.quickestTime || SingletonScript.instance.quickestTime == 0)
+            {
+                print("elapsedTimer " + elapsedTimer);
+                SingletonScript.instance.quickestTime = elapsedTimer;
+                SingletonScript.instance.SetQuickestTime();
+            }
+        }
 
 
     }
