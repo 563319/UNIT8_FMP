@@ -15829,8 +15829,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "PRAISE THE ONE AND ONLY\nTHE GARDERNER\nWHO BROUGHT US LIFE\nAND GAVE
-    US OUR GOAL   \n\nDESTROY HUMANITY"
+  m_text: "PRAISE THE ONE AND ONLY\nTHE GARDENER\nWHO BROUGHT US LIFE\nAND GAVE US
+    OUR GOAL   \n\nDESTROY HUMANITY"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a14a8a1184c5f14fbce3338ea4d7a35, type: 2}
   m_sharedMaterial: {fileID: 1260715531048141648, guid: 9a14a8a1184c5f14fbce3338ea4d7a35, type: 2}
@@ -166167,17 +166167,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 1497326837}
   m_VersionIndex: 35307
   m_IsSelectable: 1
-  m_SelectedFaces: 960b0000
-  m_SelectedEdges:
-  - a: 11930
-    b: 11931
-  - a: 11931
-    b: 11932
-  - a: 11932
-    b: 11929
-  - a: 11929
-    b: 11930
-  m_SelectedVertices: 9c2e00009a2e00009b2e0000992e0000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!4 &2066848603
 Transform:
   m_ObjectHideFlags: 0
